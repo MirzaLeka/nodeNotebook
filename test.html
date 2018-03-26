@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Test</title>
+</head>
+<body>
+
+<ul id="demo">
+
+</ul>
+
+
+</body>
+
+<style>
+
+ul{
+list-style-type: none;
+}
+
+li{
+height: 20px;
+background: #ddd;
+margin-top: 10px;
+}
+
+</style>
+
+<script>
+
+var stringed = '{"array":[{"name":"Mirza","age":23},{"name":"Amar","age":24}]}';
+
+/*
+var object = {
+array: [ 
+{ name: "Mirza",age: 23 },
+{ name: "Amar", age: 24 }
+]
+ };
+*/
+
+var object = JSON.parse(stringed);
+console.log(object);
+
+
+var demo = document.getElementById("demo");
+var append = "";
+
+for (var i = 0; i < object.array.length; i++) {
+append+= "<li>Name: " + object.array[i].name + ", Age: " + object.array[i].age + " </li>";
+}
+
+demo.innerHTML = append;
+
+
+var stringObject = JSON.stringify(object);
+console.log(stringObject);
+console.log("------------------");
+var parseObject = JSON.parse(stringObject);
+console.log(parseObject);
+
+</script>
+
+</html>

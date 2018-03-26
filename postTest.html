@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Test</title>
+</head>
+<body>
+
+<label>Insert name</label>
+<input id="name" type="text"/>
+<br>
+<label>Insert age</label>
+<input id="age" type="number"/>
+
+<button onclick="post()">POST</button>
+
+<table>
+<thead>
+<tr>
+<td>Name</td> 
+<td>Age</td>
+</tr>
+</thead>
+<tbody id="demo">
+
+</tbody>
+
+</table>
+
+
+</body>
+
+<style>
+
+table{
+border: 2px solid black;
+}
+
+td{
+border: 1px solid black;
+}
+
+</style>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
+<script>
+
+var newArray = [];
+var demo = document.getElementById("demo");
+
+function post() {
+
+var name = document.getElementById("name").value;
+var age = document.getElementById("age").value;
+
+var append = {
+name: name,
+age: age
+};
+
+newArray.push(append);
+//console.log(newArray);
+
+
+
+var object = {
+ nameAndAge: newArray 
+};
+
+console.log(object);
+
+var toDemo = "";
+
+for (var i = 0; i < object.nameAndAge.length; i++) {
+toDemo+= "<tr>"
+ + "<td>" + object.nameAndAge[i].name + "</td>"
+ + "<td>" + object.nameAndAge[i].age  + "</td>"
+ + "</tr>";
+
+}
+
+demo.innerHTML = toDemo;
+
+}
+
+</script>
+
+</html>
