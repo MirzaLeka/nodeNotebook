@@ -1,22 +1,21 @@
-const lodash = require("lodash");
-const express = require('express');
-const hbs = require("hbs");
-const fs = require("fs");
+var http = require('http');
+var fs = require('fs');
 
-var app = express();
+function onRequest(request, response) {
+/* 
 
-var output = lodash.without([1,2,3],3);
-console.log(output);
+    response.writeHead(200, {'Content-Type': 'text/html'});
+    fs.readFile('spyder.html', null, function(error, data) {
+        if (error) {
+            response.writeHead(404);
+            response.write('File not found!');
+        } else {
+            response.write(data);
+        }
+        response.end();
+    });
 
+*/
+}
 
-app.get("/", (req, res) => {
-
-res.render("home.hbs");
-
-});
-
-
-
-app.listen(3000, () => {
-console.log("Server is running on port 3000");
-});
+http.createServer(onRequest).listen(3000);
